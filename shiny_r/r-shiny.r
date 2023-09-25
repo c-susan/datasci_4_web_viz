@@ -5,7 +5,7 @@ library(dplyr)
 
 # UI for the Shiny app
 ui <- fluidPage(
-  titlePanel("Cancer Age-adjusted Prevalence in Alabama by County"),
+  titlePanel("Cancer Prevalence in Alabama by County"),
   sidebarLayout(
     sidebarPanel(
       selectInput("county", "Choose a county:", choices = NULL)
@@ -28,7 +28,7 @@ server <- function(input, output, session) {
   # Filter the dataset
   df_cancer <- reactive({
     data <- df()
-    filter(data, MeasureId == "BINGE", Data_Value_Type == "Age-adjusted prevalence")
+    filter(data, MeasureId == "BINGE", Data_Value_Type == "Crude prevalence")
   })
   
   # Update county choices dynamically based on dataset
@@ -46,8 +46,8 @@ server <- function(input, output, session) {
     ggplot() +
       geom_bar(data = county_data, aes(x = LocationName, y = Data_Value, fill = LocationName), stat = "identity") +
       geom_hline(aes(yintercept = avg_value), linetype = "dashed", color = "dodgerblue") +
-      labs(title = 'Cancer Age-adjusted Prevalence',
-           y = 'Data Value (Age-adjusted prevalence) - Percent',
+      labs(title = 'Cancer Crude Prevalence',
+           y = 'Data Value (Crude prevalence) - Percent',
            x = 'Location (County)') +
       theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
       ylim(0, 30) +
