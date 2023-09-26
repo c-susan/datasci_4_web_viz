@@ -16,6 +16,7 @@ ui <- fluidPage(
   )
 )
 
+
 # Server logic
 server <- function(input, output, session) {
   
@@ -56,5 +57,8 @@ server <- function(input, output, session) {
   
 }
 
-# Run the Shiny app
-shinyApp(ui, server)
+# Run the application 
+shinyApp(ui = ui, server = server)
+
+
+## shinyapps.io link: https://t9tlf5-susan0chen.shinyapps.io/web-viz/
