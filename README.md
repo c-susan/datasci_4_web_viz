@@ -33,7 +33,7 @@ Backtrace:
  5.         └─rlang::abort(...)
 ```
 ### 2. Python's Shiny Visualization
-*No significant challenge was encountered in this portion, however, I can to pip install matplotlib in the shell.cloud terminal.*
+*No significant challenge was encountered in this portion, however, I can to pip install matplotlib in the shell.cloud terminal to run the code.*
 
 ### 3. Flask with Matplotlib Visualization
 *No challenge was encountered in this portion.*
